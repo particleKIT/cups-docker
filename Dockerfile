@@ -9,6 +9,8 @@ RUN zypper --gpg-auto-import-keys --non-interactive ref && \
     gutenprint OpenPrintingPPDs-ghostscript OpenPrintingPPDs &&\
     zypper clean --all
 
+COPY pam.d/* /etc/pam.d/
+
 VOLUME /config
 
 ENV LDAP_SSL=true
