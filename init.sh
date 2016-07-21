@@ -17,7 +17,7 @@ fi
 
 if [ "$(ls -A /config)" ]; then
     echo "Copy config files"
-    cp -fr /config/cups/* /etc/cups/
+    cp -fr /config/* /etc/cups/
 fi
  
 if [ "$(ls -A /filter)" ]; then
