@@ -11,7 +11,7 @@ RUN zypper --gpg-auto-import-keys --non-interactive ref && \
 
 COPY pam.d/* /etc/pam.d/
 
-VOLUME /config
+VOLUME ["/config", "/ssl","/filter"]
 
 ENV LDAP_SSL=true
 
