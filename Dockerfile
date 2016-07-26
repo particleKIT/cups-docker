@@ -9,6 +9,12 @@ RUN zypper --gpg-auto-import-keys --non-interactive ref && \
     gutenprint OpenPrintingPPDs-ghostscript OpenPrintingPPDs &&\
     zypper clean --all
 
+# enable ldap user authentification
+RUN sed -i 's/^\(passwd\|group\|shadow\):\(.*\)/#\1: \2/gm' /etc/nsswitch.conf &&\
+    sed -i '$a passwd: files ldap' /etc/nsswitch.conf &&\
+    sed -i '$a group: files ldap' /etc/nsswitch.conf &&\
+    sed -i '$a shadow: files ldap' /etc/nsswitch.conf
+
 COPY pam.d/* /etc/pam.d/
 
 VOLUME ["/config", "/ssl","/filter"]
