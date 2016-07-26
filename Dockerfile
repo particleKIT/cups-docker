@@ -19,7 +19,9 @@ COPY pam.d/* /etc/pam.d/
 
 VOLUME ["/config", "/ssl","/filter"]
 
-ENV LDAP_SSL=true
+ENV LDAP_SSL=true \
+    CUPS_PASSWD=false \ 
+    CUPS_LOGIN=root
 
 EXPOSE 631
 

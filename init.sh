@@ -24,5 +24,11 @@ if [ "$(ls -A /filter)" ]; then
     echo "Copy printer filters"
     cp -fr /filter/* /usr/lib/cups/filter/
 fi
- 
+
+if [ "$CUPS_PASSWD" != "false" ]; then
+    echo "Set cups administration password."
+    echo "$CUPS_LOGIN:$CUPS_PASSWD" | chpasswd
+fi
+
+ echo "Starting CUPS..."
 /usr/sbin/cupsd -f
