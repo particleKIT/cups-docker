@@ -8,7 +8,7 @@ RUN zypper --gpg-auto-import-keys --non-interactive ref && \
     gutenprint OpenPrintingPPDs-ghostscript OpenPrintingPPDs \
     OpenPrintingPPDs-hpijs OpenPrintingPPDs-postscript hplip \
     hplip-hpijs hplip-sane manufacturer-PPDs gnu-free-fonts \
-    which bc && \
+    hostname which bc && \
     zypper clean --all
 
 VOLUME ["/config", "/filter"]
